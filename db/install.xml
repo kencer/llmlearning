@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/llmlearning/db" VERSION="2026041500" COMMENT="LLM Learning Plugin DB">
+    <TABLES>
+
+        <TABLE NAME="llmlearning_interactions" COMMENT="Stores student-agent interactions">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true"/>
+                <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true"/>
+                <FIELD NAME="userinput" TYPE="text" NOTNULL="true"/>
+                <FIELD NAME="agentresponse" TYPE="text" NOTNULL="true"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+
+        <TABLE NAME="llmlearning_exploration" COMMENT="Exploration analytics">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10"/>
+                <FIELD NAME="interactionid" TYPE="int" LENGTH="10"/>
+                <FIELD NAME="entropy" TYPE="number" LENGTH="10" DECIMALS="5"/>
+                <FIELD NAME="divergence" TYPE="number" LENGTH="10" DECIMALS="5"/>
+                <FIELD NAME="explorationscore" TYPE="number" LENGTH="10" DECIMALS="5"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+
+        <TABLE NAME="llmlearning_creativity" COMMENT="Creativity scores">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10"/>
+                <FIELD NAME="interactionid" TYPE="int" LENGTH="10"/>
+                <FIELD NAME="novelty" TYPE="number" LENGTH="10" DECIMALS="5"/>
+                <FIELD NAME="flexibility" TYPE="number" LENGTH="10" DECIMALS="5"/>
+                <FIELD NAME="elaboration" TYPE="number" LENGTH="10" DECIMALS="5"/>
+                <FIELD NAME="diversity" TYPE="number" LENGTH="10" DECIMALS="5"/>
+                <FIELD NAME="creativityscore" TYPE="number" LENGTH="10" DECIMALS="5"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+
+        <TABLE NAME="llmlearning_state" COMMENT="Learner state tracking">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10"/>
+                <FIELD NAME="explorationscore" TYPE="number" LENGTH="10" DECIMALS="5"/>
+                <FIELD NAME="creativityscore" TYPE="number" LENGTH="10" DECIMALS="5"/>
+                <FIELD NAME="statejson" TYPE="text"/>
+                <FIELD NAME="timeupdated" TYPE="int" LENGTH="10"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+
+    </TABLES>
+</XMLDB>

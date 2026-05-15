@@ -1,0 +1,43 @@
+<style>
+#chat-box pre {
+    background: #212529;
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+#chat-box code {
+    background: #e9ecef;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+#chat-box ul {
+    padding-left: 20px;
+}
+</style>
+<div class="container mt-4" style="max-width: 800px;">
+
+    <div class="card shadow-sm">
+        
+        <!-- Header -->
+        <div class="card-header bg-primary text-white">
+            <strong>AI Learning Companion</strong>
+        </div>
+
+        <!-- Chat Body -->
+        <div id="chat-box" class="card-body" style="height: 400px; overflow-y: auto; background-color: #f8f9fa;">
+        </div>
+
+        <!-- Input Area -->
+        <div class="card-footer">
+            <div class="input-group">
+                <input type="text" id="chat-input" class="form-control" placeholder="Ask something..." />
+                <button id="send-btn" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

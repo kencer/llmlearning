@@ -1,0 +1,67 @@
+<div class="container-fluid">
+
+    <h2 class="mb-3">Student Learning Analytics</h2>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Exploration Score</th>
+                    <th>Creativity Score</th>
+                    <th>Exploration Level</th>
+                    <th>Creativity Level</th>
+                    <th>Engagement</th>
+                    <th>Trend</th>
+                    <th>Flags</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#students}}
+                <tr>
+                    <td><strong>{{fullname}}</strong></td>
+                    <td>{{exploration}}</td>
+                    <td>{{creativity}}</td>
+                    <td>
+                        <span class="badge badge-info">
+                            {{exploration_level}}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="badge badge-primary">
+                            {{creativity_level}}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="badge badge-secondary">
+                            {{engagement}}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="badge badge-warning">
+                            {{trend}}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="badge badge-danger">
+                            {{flags}}
+                        </span>
+                    </td>
+                </tr>
+                {{/students}}
+
+                {{^students}}
+                <tr>
+                    <td colspan="8" class="text-center text-muted">
+                        No data available yet.
+                    </td>
+                </tr>
+                {{/students}}
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
